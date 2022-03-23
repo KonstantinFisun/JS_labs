@@ -9,26 +9,165 @@
   <h1 class="title">Задание по JS</h1>
    <div class="accordion"> 
        <div class="tab">
-        <input type="checkbox" id="tab1" name="tab-group">
+        <input type="checkbox" id="tab1" name="tab_group">
         <label for="tab1" class="tab-title">Задание 1</label> 
-        <section class="tab-content"> 
-            Виталя лох
-        </section> 
+        <section id = "task_1" class="hidden tab-content-1">
+        </section>
        </div> 
+       
        <div class="tab">
         <input type="checkbox" id="tab2" name="tab-group">
         <label for="tab2" class="tab-title">Задание 2</label> 
-        <section class="tab-content"> 
-        
-        </section> 
+        <section id = "task_2" class="hidden tab-content-2"> 
+           <div id="month-calendar">
+                <ul class="month">
+                    <li class="month-name"></li>
+                    <li class="year-name"></li>
+                </ul>
+                <ul class="weekdays">
+                    <li>Пн</li>
+                    <li>Вт</li>
+                    <li>Ср</li>
+                    <li>Чт</li>
+                    <li>Пт</li>
+                    <li>Сб</li>
+                    <li>Вс</li>
+                </ul>
+                <ul class="days">
+                </ul>
+            </div>
+       </section> 
        </div> 
+       
        <div class="tab">
         <input type="checkbox" id="tab3" name="tab-group">
         <label for="tab3" class="tab-title">Задание 3</label>
-        <section class="tab-content">
+        <section id = "task_3" class="hidden tab-content-3">
         
         </section>
        </div>
+    
   </div>
+    
+    
+    <script type="text/javascript">
+        
+     let elem1 = document.getElementById('tab1')
+     let elem2 = document.getElementById('tab2')
+     
+     elem1.onclick = function() {
+        let block = document.getElementById('task_1')
+        if (block.className === "displayed tab-content-1"){
+            block.setAttribute('class','hidden tab-content-1')
+        }
+        else{
+            block.setAttribute('class', 'displayed tab-content-1')
+        }
+    }
+     
+     elem2.onclick = function() {
+        let block = document.getElementById('task_2')
+        if (block.className === "displayed tab-content-2"){
+            block.setAttribute('class','hidden tab-content-2')
+        }
+        else{
+            block.setAttribute('class','displayed tab-content-2')
+            let nowDate = new Date(), // создаем экземпляра объекта с текущей датой
+            nowDateNumber = nowDate.getDate(), //Текущая дата
+            nowMonth = nowDate.getMonth(), //Текущий месяц
+            nowYear = nowDate.getFullYear(), //Тякущий год
+                
+            container = document.getElementById('month-calendar'),
+            monthContainer = container.getElementsByClassName('month-name')[0],
+            yearContainer = container.getElementsByClassName('year-name')[0],
+            daysContainer = container.getElementsByClassName('days')[0],
+            monthName = ['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
+            
+
+
+            function setMonthCalendar(year,month) {
+                let monthDays = new Date(year, month + 1, 0).getDate(),// возвращает количество дней в данном месяце
+
+                monthPrefix = new Date(year, month, 0).getDay(),//первый день недели
+                monthDaysText = '';
+
+                monthContainer.textContent = monthName[month]; //Записываем месяц
+                yearContainer.textContent = year; //Записываем год
+                daysContainer.innerHTML = ''; //Создаем пустую строку
+                
+                
+                //Убираем лишнии днив начале
+                if (monthPrefix > 0){
+                    for (let i = 1  ; i <= monthPrefix; i++){
+                        monthDaysText += '<li></li>';
+                    }
+                }
+                
+                let count = 0;
+                let storage = [];
+                
+                //Записываем дни месяца
+                for (let i = 1; i <= monthDays; i++){ 
+                    monthDaysText += '<li>' + i + '</li>';
+                    
+                    //Определяем выходной ли это
+                    if(checkDate(i,month,year)){
+                        storage[count] = i;
+                        count++;
+                    }
+                }
+            
+                daysContainer.innerHTML = monthDaysText;
+            
+                //Делаем текущую дату черной
+                days = daysContainer.getElementsByTagName('li');
+                days[monthPrefix + nowDateNumber - 1].classList.add('date-now');
+                
+                for(let i = 0; i < storage.length; i++){
+                    days[monthPrefix + storage[i] - 1].classList.add('weekend');
+                }
+                
+
+            }
+            
+            //Проверка выходного
+            function checkDate(day, month, year) {
+                const date = new Date(year, month - 1, day);
+
+                return (date.getDay() == 0 || date.getDay() == 6);
+            }
+
+            setMonthCalendar(nowYear,nowMonth); //Вызов функции
+
+        }
+    }
+    
+    
+        
+    function below_10(number){
+        if (number < 10)
+            number = "0" + number
+        return number
+    }
+        
+    function my_date_time(){
+        let now = new Date();
+        days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+        // Формат даты
+        let dat =  below_10(now.getDate()).toString() + "-" + below_10(now.getMonth()).toString()  + "-" + now.getFullYear()
+        
+        // Формат времени
+        let time = below_10(now.getHours()) + ":" + below_10(now.getMinutes()) + ":" + below_10(now.getSeconds()) 
+        
+        let res = dat + ", " + days[now.getDay()] + " " + time
+        
+        document.getElementById("task_1").innerHTML = res;
+    }
+        
+    setInterval(my_date_time, 1000);
+        
+    
+    </script>
+
 </body>
 </html>
