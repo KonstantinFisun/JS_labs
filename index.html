@@ -6,16 +6,16 @@
     <title>Задание по JS</title>
 </head>
 <body>
-  <h1 class="title">Задание по JS</h1>
+  <h1 class="title">Задание по JS - Вариант 16</h1>
    <div class="accordion"> 
-       <div class="tab">
+       <div class="tab" id="tab_1">
         <input type="checkbox" id="tab1" name="tab_group">
         <label for="tab1" class="tab-title">Задание 1</label> 
         <section id = "task_1" class="hidden tab-content-1">
         </section>
        </div> 
        
-       <div class="tab">
+       <div class="tab" id="tab_2">
         <input type="checkbox" id="tab2" name="tab-group">
         <label for="tab2" class="tab-title">Задание 2</label> 
         <section id = "task_2" class="hidden tab-content-2"> 
@@ -39,10 +39,26 @@
        </section> 
        </div> 
        
-       <div class="tab">
+       <div class="tab" id="tab_3">
         <input type="checkbox" id="tab3" name="tab-group">
         <label for="tab3" class="tab-title">Задание 3</label>
         <section id = "task_3" class="hidden tab-content-3">
+        
+        </section>
+       </div>
+       
+       <div class="tab" id="tab_4">
+        <input type="checkbox" id="tab4" name="tab-group">
+        <label for="tab4" class="tab-title">Задание 4</label>
+        <section id = "task_4" class="hidden tab-content-4">
+        
+        </section>
+       </div>
+       
+       <div class="tab" id="tab_5">
+        <input type="checkbox" id="tab5" name="tab-group">
+        <label for="tab5" class="tab-title">Задание 5</label>
+        <section id = "task_5" class="hidden tab-content-5">
         
         </section>
        </div>
@@ -54,16 +70,41 @@
         
      let elem1 = document.getElementById('tab1')
      let elem2 = document.getElementById('tab2')
+     let elem4 = document.getElementById('tab4')
      
      elem1.onclick = function() {
         let block = document.getElementById('task_1')
+        
         if (block.className === "displayed tab-content-1"){
             block.setAttribute('class','hidden tab-content-1')
         }
         else{
             block.setAttribute('class', 'displayed tab-content-1')
+            setInterval(my_date_time, 1000);
         }
     }
+     
+     function below_10(number){
+        if (number < 10)
+            number = "0" + number
+        return number
+    }
+        
+     function my_date_time(){
+        let now = new Date();
+        days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+        // Формат даты
+        let dat =  below_10(now.getDate()).toString() + "-" + below_10(now.getMonth()).toString()  + "-" + now.getFullYear()
+        
+        // Формат времени
+        let time = below_10(now.getHours()) + ":" + below_10(now.getMinutes()) + ":" + below_10(now.getSeconds()) 
+        
+        let res = dat + ", " + days[now.getDay()] + " " + time
+        
+        document.getElementById("task_1").innerHTML = res;
+    }
+        
+     
      
      elem2.onclick = function() {
         let block = document.getElementById('task_2')
@@ -96,7 +137,7 @@
                 daysContainer.innerHTML = ''; //Создаем пустую строку
                 
                 
-                //Убираем лишнии днив начале
+                //Убираем лишнии дни в начале
                 if (monthPrefix > 0){
                     for (let i = 1  ; i <= monthPrefix; i++){
                         monthDaysText += '<li></li>';
@@ -141,31 +182,40 @@
 
         }
     }
+     var timer1 = null;
     
+     elem4.onclick = function(){
+         clearInterval(timer1);
+         let block = document.getElementById('tab2');
+         block.style.backgroundColor = "black";
+         if (block.className === "displayed tab-content-4"){
+             block.setAttribute('class', "hidden tab-content-4")
+             
+         }
+         else{
+             block.setAttribute('class', 'displayed tab-content-4')
+             timer1 = setInterval(coloring, 150)
+         }
+     }
+        
+    function coloring(){
+        //Получили количество блоков .tab
+        var elements_length = document.querySelectorAll('.tab').length
     
+        //Случайный блок
+        let number_block = Math.round(Math.random() * (elements_length - 1) + 1)
+    
+        //Случайный цвет
+        let color_block = '#' + (Math.random().toString(16) + '000000').substring(2,8).toUpperCase()
         
-    function below_10(number){
-        if (number < 10)
-            number = "0" + number
-        return number
-    }
+        let str = "tab_" + number_block
+        console.log(str)
+        let lol = document.getElementById(str) //Получаем рандомный блок
+        console.log(lol)
         
-    function my_date_time(){
-        let now = new Date();
-        days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
-        // Формат даты
-        let dat =  below_10(now.getDate()).toString() + "-" + below_10(now.getMonth()).toString()  + "-" + now.getFullYear()
-        
-        // Формат времени
-        let time = below_10(now.getHours()) + ":" + below_10(now.getMinutes()) + ":" + below_10(now.getSeconds()) 
-        
-        let res = dat + ", " + days[now.getDay()] + " " + time
-        
-        document.getElementById("task_1").innerHTML = res;
-    }
-        
-    setInterval(my_date_time, 1000);
-        
+        lol.style.backgroundColor = color_block // Устанавливаем цвет
+    
+    }    
     
     </script>
 
