@@ -59,7 +59,9 @@
         <input type="checkbox" id="tab5" name="tab-group">
         <label for="tab5" class="tab-title">Задание 5 - Создание элемента</label>
         <section id = "task_5" class="hidden tab-content-5">
-        
+        <ul class = "ul_task_5" reversed>
+            
+        </ul>
         </section>
        </div>
     
@@ -71,6 +73,11 @@
      let elem1 = document.getElementById('tab1')
      let elem2 = document.getElementById('tab2')
      let elem4 = document.getElementById('tab4')
+     let elem5 = document.getElementById('tab5')
+     
+     
+     
+     /*Задание 1 - Дата/Время*/
      
      elem1.onclick = function() {
         let block = document.getElementById('task_1')
@@ -84,12 +91,14 @@
         }
     }
      
+     //Если число меньше 10
      function below_10(number){
         if (number < 10)
             number = "0" + number
         return number
     }
-        
+       
+     //Выставление времени    
      function my_date_time(){
         let now = new Date();
         days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
@@ -103,9 +112,11 @@
         
         document.getElementById("task_1").innerHTML = res;
     }
+       
+    /*========================================================================*/    
         
-     
-     
+     /*Задание 2 - Календарь*/
+        
      elem2.onclick = function() {
         let block = document.getElementById('task_2')
         if (block.className === "displayed tab-content-2"){
@@ -182,12 +193,14 @@
 
         }
     }
-     var timer1 = null;
+     /*=======================================================================*/
+     
+     /*Задание 4 - Изменение блока*/
+     var timer1 = null; // Название таймера функции для раскраски
     
      elem4.onclick = function(){
          clearInterval(timer1);
-         let block = document.getElementById('tab2');
-         block.style.backgroundColor = "black";
+         let block = document.getElementById('tab4');
          if (block.className === "displayed tab-content-4"){
              block.setAttribute('class', "hidden tab-content-4")
              
@@ -198,6 +211,7 @@
          }
      }
         
+    // Раскраска блока
     function coloring(){
         //Получили количество блоков .tab
         var elements_length = document.querySelectorAll('.tab').length
@@ -214,9 +228,31 @@
         console.log(lol)
         
         lol.style.backgroundColor = color_block // Устанавливаем цвет
+    }   
+        
+    /*==============================================================================*/
     
+    /*Задание 5 - Создание элемента*/    
+    
+    elem5.onclick = function(){
+        let block = document.getElementById('task_5')
+        if (block.className === "displayed tab-content-5"){
+            block.setAttribute('class', "hidden tab-content-5")
+        }
+        else{
+            block.setAttribute('class', "displayed tab-content-5")
+            let ulcontainer = document.getElementsByClassName('ul_task_5')[0]
+            let ultext = ''
+            var value = prompt("Введите содержимое пункта")
+            while(value != null){
+                ultext += '<li>' + value + '</li>'
+                value = prompt("Введите содержимое пункта")
+            }
+            ulcontainer.innerHTML += ultext
+        }
     }    
-    
+        
+    /*==============================================================================*/
     </script>
 
 </body>

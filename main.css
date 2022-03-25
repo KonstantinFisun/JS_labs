@@ -23,7 +23,7 @@ h1.title{
  font: 0.8rem/1.2 Arial, sans-serif; /* Параметры шрифта */
  border: 1px solid #e9eaec; /* Параметры рамки */
  border-radius: 3px; /* Скругляем уголки */
- color: #848994; /* Цвет текста */
+ color: black; /* Цвет текста */
  margin-bottom: 10px; /* Расстояние между пунктами */
  width: 400px;
 }
@@ -43,7 +43,10 @@ h1.title{
 .tab :checked + .tab-title {
  /*background-color: #50a2de; /* Цвет фона */
  border-radius: 3px 3px 0 0; /* Скругляем уголки */
- color: #fff; /* Цвет текста */
+ color: #50a2de; /* Цвет текста */
+ border: 3px solid #000;
+ border-color: #50a2de;
+ border-bottom: 0;
 }
 
 .displayed{
@@ -148,3 +151,10 @@ h1.title{
 }
 
 /* */
+
+.ul_task_5{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+
