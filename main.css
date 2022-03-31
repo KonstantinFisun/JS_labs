@@ -37,7 +37,7 @@ h1.title{
 }
 
 .tab :checked ~ .tab-content {
- display: block;  #Показываем содержимое 
+ display: block;  /*Показываем содержимое */
 }
 
 .tab :checked + .tab-title {
@@ -157,4 +157,46 @@ h1.title{
     flex-direction: column-reverse;
 }
 
+/*============================================================*/
 
+/*Меню*/
+.title_menu{
+    cursor: pointer;
+}
+
+.menu ul{
+    margin: 0;
+    list-style: none;
+    padding-left: 20px; 
+    display: none;
+}
+
+.menu .title_menu::before{
+    content: '→';
+    font-size: 150%;
+    color: green;
+}
+
+.menu.open .title_menu::before{
+    content: '↓';
+    font-size: 150%;
+    color: red;
+}
+
+.menu.open ul{
+    display: block;
+    flex-direction: column;
+}
+
+
+
+
+.menu .list_sweeties li{
+    cursor: pointer;
+    display: inline-block;
+    
+}
+
+.list1.close{
+    display: none;
+}
