@@ -3,7 +3,7 @@ let elem1 = document.getElementById('tab1')
      let elem4 = document.getElementById('tab4')
      let elem5 = document.getElementById('tab5')
      let elem7 = document.getElementById('tab7')
-     
+     let elem8 = document.getElementById('tab8')
      
      
      /*Задание 1 - Дата/Время*/
@@ -260,8 +260,17 @@ elem7.onclick = function(){
 
 
 
-
-
-
 /*===========================================================================*/
-    
+
+/*Задание 8 - Обработка событий*/
+ 
+elem8.onclick = function(){
+    let block = document.getElementById('task_8')
+    if (block.className === "displayed tab-content-8"){
+        block.setAttribute('class', "hidden tab-content-8")
+    }
+    else{
+        block.setAttribute('class', "displayed tab-content-8")  
+        }
+    }
+}    
