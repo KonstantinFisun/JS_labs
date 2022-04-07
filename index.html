@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <link rel="stylesheet" href = "main.css">
     <title>Задание по JS</title>
 </head>
@@ -10,14 +11,14 @@
   <h1 class="title">Задание по JS - Вариант 16</h1>
    <div class="accordion"> 
        <div class="tab" id="tab_1">
-        <input type="checkbox" id="tab1" name="tab_group">
+        <input type="checkbox" id="tab1" name="tab_group" class = "input_tab">
         <label for="tab1" class="tab-title">Задание 1 - Дата/Время</label> 
         <section id = "task_1" class="hidden tab-content-1">
         </section>
        </div> 
        
        <div class="tab" id="tab_2">
-        <input type="checkbox" id="tab2" name="tab-group">
+        <input type="checkbox" id="tab2" name="tab-group" class = "input_tab">
         <label for="tab2" class="tab-title">Задание 2 - Календарь</label> 
         <section id = "task_2" class="hidden tab-content-2"> 
            <div id="month-calendar">
@@ -41,7 +42,7 @@
        </div> 
        
        <div class="tab" id="tab_3">
-        <input type="checkbox" id="tab3" name="tab-group">
+        <input type="checkbox" id="tab3" name="tab-group" class = "input_tab">
         <label for="tab3" class="tab-title">Задание 3 - Нахождение элементов в DOM – дереве</label>
         <section id = "task_3" class="hidden tab-content-3">
         
@@ -49,7 +50,7 @@
        </div>
        
        <div class="tab" id="tab_4">
-        <input type="checkbox" id="tab4" name="tab-group">
+        <input type="checkbox" id="tab4" name="tab-group" class = "input_tab">
         <label for="tab4" class="tab-title">Задание 4 - Изменение объектов</label>
         <section id = "task_4" class="hidden tab-content-4">
         
@@ -57,7 +58,7 @@
        </div>
        
        <div class="tab" id="tab_5">
-        <input type="checkbox" id="tab5" name="tab-group">
+        <input type="checkbox" id="tab5" name="tab-group" class = "input_tab">
         <label for="tab5" class="tab-title">Задание 5 - Создание элемента</label>
         <section id = "task_5" class="hidden tab-content-5">
         <ul class = "ul_task_5" reversed>
@@ -67,7 +68,7 @@
        </div>
        
        <div class="tab" id="tab_6">
-        <input type="checkbox" id="tab6" name="tab-group">
+        <input type="checkbox" id="tab6" name="tab-group" class = "input_tab">
         <label for="tab6" class="tab-title">Задание 6 - Обработка событий</label>
         <section id = "task_6" class="hidden tab-content-6">
         
@@ -75,7 +76,7 @@
        </div>
        
        <div class="tab" id="tab_7">
-        <input type="checkbox" id="tab7" name="tab-group">
+        <input type="checkbox" id="tab7" name="tab-group" class = "input_tab">
         <label for="tab7" class="tab-title">Задание 7 - Скрывающиеся меню</label>
         <section id = "task_7" class="hidden tab-content-7">
             <div id = "sweeties" class="menu">
@@ -92,18 +93,84 @@
        </div>
        
        <div class="tab" id="tab_8">
-        <input type="checkbox" id="tab8" name="tab-group">
+        <input type="checkbox" id="tab8" name="tab-group" class = "input_tab">
         <label for="tab8" class="tab-title">Задание 8 - Исчезающая картинка</label>
         <section id = "task_8" class="hidden tab-content-8">
-            <img src="wolf.jpg"/>
+            <img src="wolf.jpg" class = "Picture"/>
         </section>
        </div>
        
         <div class="tab" id="tab_9">
-        <input type="checkbox" id="tab9" name="tab-group">
-        <label for="tab9" class="tab-title">Задание 9 - Регулярные выражения</label>
+        <input type="checkbox" id="tab9" name="tab-group" class = "input_tab">
+        <label for="tab9" class="tab-title">Задание 9 - Анкета</label>
         <section id = "task_9" class="hidden tab-content-9">
- 
+             <div class="anketa"> Анкета
+                 <div class="FIO">
+                     <div class="left"> Фамилия Имя Отчество</div>
+                     <div class="right"><INPUT NAME="Id" SIZE=20 class = "FIO_input"></INPUT></div>
+                 </div>
+                 <div class="Gender">
+                     <div class="left">Пол</div>
+                     <div class="right">
+                         <INPUT TYPE="RADIO"  NAME="Sex" VALUE ="Man" CHECKED>Мужской</INPUT>
+                         <INPUT TYPE="RADIO"  NAME="Sex" VALUE ="Woman">Женский</INPUT>
+                     </div>
+                 </div>
+                 
+                 <div class="Password">
+                     <div class="left">Пароль</div>
+                     <div class="right">
+                            Введите пароль<br>
+                            <INPUT TYPE="password" NAME="Pwd"
+                            onFocus="this.select();"></INPUT>
+                            <br>Введите пароль повторно<INPUT TYPE="password" NAME="Pwd1" onFocus="this.select();"></INPUT>         
+                    </div>
+                 </div>
+                 
+                 <div class="Education">
+                     <div class="left">Образование</div>
+                     <div class="right">
+                        <SELECT NAME="Item" SIZE=3>
+                            <OPTION VALUE="">Высшее профессиональное</OPTION>
+                            <OPTION VALUE ="">Среднее профессиональное</OPTION>
+                            <OPTION VALUE ="">Начальное профессиональное</OPTION>
+                            <OPTION VALUE ="">Основное общее</OPTION>
+                            <OPTION VALUE ="">Начальное общее</OPTION>
+                        </SELECT>
+                     </div>
+                 </div>
+                 
+                 <div class="Email">
+                     <div class="left">Email</div>
+                     <div class="right"><INPUT NAME="Id" SIZE=20 class = "FIO_input"></INPUT></div>
+                 </div>
+                 <div class="Skills">
+                     <div class="left">Ваши навыки</div>
+                     <div class="right">
+                         Знание HTML и CSS<INPUT TYPE="checkbox" NAME="ch"></INPUT><br>
+                         Знание Perl<INPUT TYPE="checkbox" NAME="ch"></INPUT>
+                         <br>
+                         Знание ASP<INPUT TYPE="checkbox" NAME="ch"></INPUT>
+                         <br>
+                         Знание Adobe Photoshop<INPUT TYPE="checkbox" NAME="ch"></INPUT>
+                         <br>
+                         Знание Java<INPUT TYPE="checkbox" NAME="ch"></INPUT>
+                         <br>
+                         Знание JavaScript<INPUT TYPE="checkbox" NAME="ch"></INPUT>
+                         <br>
+                         Знание Flash<INPUT TYPE="checkbox" NAME="ch"></INPUT>
+                         <br>
+                         Знание Python<INPUT TYPE="checkbox" NAME="ch"></INPUT>
+                         <br>
+                     </div>
+                 </div>
+                 <div class="About">
+                     <div class="left">О себе</div>
+                     <div class="right"></div>
+                 </div>
+             </div>
+            <INPUT TYPE="button" VALUE="Готово" onClick="Complete1();"></INPUT>
+            <INPUT TYPE="reset" VALUE="Сброс"></INPUT>
         </section>
        </div>
     

@@ -2,8 +2,9 @@
 
 /*Форма*/
 
-.tab input { display: none; }
+
 .tab-content { display: none; }
+.input_tab { display: none; }
 /*
 .accordion{
     position: relative;
@@ -199,4 +200,95 @@ h1.title{
 
 .list1.close{
     display: none;
+}
+
+/*Картина*/
+
+.Picture{
+    height: 400px;
+    width: 398px;
+    object-fit: cover;
+}
+
+/*==========================================================================*/
+
+/*Анкета*/
+.anketa{
+    justify-content: center;
+    text-align: center;
+    
+}
+.FIO{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.Gender{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.Password{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.Password .right{
+    flex-direction: column;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Email{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.Skills{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.About{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.left{
+    width: 30%;
+    border: 3px solid #000;
+    border-color: gray;
+}
+
+.right{
+    width: 70%;
+    border: 3px solid #000;
+    border-color: gray;
+}
+
+.Skills .right{
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.FIO_input{
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: 2px solid #000;
+    border-color: black;
+}
+
+.Education{
+    height: 100%;
+    width: 100%;
+    display: flex;
 }

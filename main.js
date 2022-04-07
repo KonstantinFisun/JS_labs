@@ -4,7 +4,7 @@ let elem1 = document.getElementById('tab1')
      let elem5 = document.getElementById('tab5')
      let elem7 = document.getElementById('tab7')
      let elem8 = document.getElementById('tab8')
-     
+     let elem9 = document.getElementById('tab9')
      
      /*Задание 1 - Дата/Время*/
      
@@ -113,8 +113,8 @@ let elem1 = document.getElementById('tab1')
             
             //Проверка выходного
             function checkDate(day, month, year) {
-                const date = new Date(year, month - 1, day);
-
+                const date = new Date(year, month, day);
+                
                 return (date.getDay() == 0 || date.getDay() == 6);
             }
 
@@ -272,5 +272,19 @@ elem8.onclick = function(){
     else{
         block.setAttribute('class', "displayed tab-content-8")  
         }
+}
+   
+/*===========================================================================*/
+
+/*Задание 9 - Анкета*/
+ 
+elem9.onclick = function(){
+    let block = document.getElementById('task_9')
+    if (block.className === "displayed tab-content-9"){
+        block.setAttribute('class', "hidden tab-content-9")
     }
-}    
+    else{
+        block.setAttribute('class', "displayed tab-content-9")  
+        }
+}
+ 
