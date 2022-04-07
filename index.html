@@ -105,9 +105,10 @@
         <label for="tab9" class="tab-title">Задание 9 - Анкета</label>
         <section id = "task_9" class="hidden tab-content-9">
              <div class="anketa"> Анкета
-                 <div class="FIO">
+                <FORM NAME="Sel">
+                 <div class="FIO" name="FIO">
                      <div class="left"> Фамилия Имя Отчество</div>
-                     <div class="right"><INPUT NAME="Id" SIZE=20 class = "FIO_input"></INPUT></div>
+                     <div class="right"><INPUT NAME="Id_FIO" SIZE=35 class = "text_FIO"></INPUT></div>
                  </div>
                  <div class="Gender">
                      <div class="left">Пол</div>
@@ -121,9 +122,8 @@
                      <div class="left">Пароль</div>
                      <div class="right">
                             Введите пароль<br>
-                            <INPUT TYPE="password" NAME="Pwd"
-                            onFocus="this.select();"></INPUT>
-                            <br>Введите пароль повторно<INPUT TYPE="password" NAME="Pwd1" onFocus="this.select();"></INPUT>         
+                            <INPUT TYPE="password" NAME="Pwd"></INPUT>
+                            <br>Введите пароль повторно<INPUT TYPE="password" NAME="Pwd1"></INPUT>         
                     </div>
                  </div>
                  
@@ -142,8 +142,14 @@
                  
                  <div class="Email">
                      <div class="left">Email</div>
-                     <div class="right"><INPUT NAME="Id" SIZE=20 class = "FIO_input"></INPUT></div>
+                     <div class="right"><INPUT NAME="Id_Email" Id="Id_Email" SIZE=35 class = "text_FIO"></INPUT></div>
                  </div>
+                 
+                 <div class="Phone">
+                     <div class="left">Телефон</div>
+                     <div class="right"><INPUT NAME="Id_Phone" Id="Id_Phone" SIZE=35 class = "text_FIO"></INPUT></div>
+                 </div>
+                 
                  <div class="Skills">
                      <div class="left">Ваши навыки</div>
                      <div class="right">
@@ -166,10 +172,11 @@
                  </div>
                  <div class="About">
                      <div class="left">О себе</div>
-                     <div class="right"></div>
+                     <div class="right"><textarea id="textArea" class="About_text"></textarea></div>
                  </div>
+                 </FORM>
              </div>
-            <INPUT TYPE="button" VALUE="Готово" onClick="Complete1();"></INPUT>
+            <INPUT TYPE="button" VALUE="Готово" onClick="Valid();"></INPUT>
             <INPUT TYPE="reset" VALUE="Сброс"></INPUT>
         </section>
        </div>

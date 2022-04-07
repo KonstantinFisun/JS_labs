@@ -256,9 +256,16 @@ h1.title{
 }
 
 .About{
+    min-height: 100px; 
     height: 100%;
     width: 100%;
     display: flex;
+}
+
+.Phone{
+    height: 100%;
+    width: 100%;
+    display: flex; 
 }
 
 .left{
@@ -291,4 +298,32 @@ h1.title{
     height: 100%;
     width: 100%;
     display: flex;
+}
+
+.About_text{
+    height: 100%;
+    width:100%;
+    border: 2px solid #000;
+    border-color: black;
+}
+
+.text_FIO{
+    border: 2px solid #000;
+    border-color: black;
+}
+
+.FIO .right{
+    padding-top: 4px;
+    justify-content: center;
+    text-align: center;
+}
+
+.valid{
+    border: 4px solid #000;
+    border-color: green;
+}
+
+.novalid{
+    border: 4px solid #000;
+    border-color: red;
 }

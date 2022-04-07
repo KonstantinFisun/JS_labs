@@ -287,4 +287,49 @@ elem9.onclick = function(){
         block.setAttribute('class', "displayed tab-content-9")  
         }
 }
+
+
+// Проверка Фамилии
+
+function Valid()
+{
+    console.log("Я тут")
+    var output = "";
+    
+    var re_mail = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i; // Регулярка почты
+    var myMail = document.Sel.Id_Email.value;
+    var valid_mail = re_mail.test(myMail);
+    
+    if (valid_mail) {
+        output += 'Адрес эл. почты введен правильно!\n';
+        let mail = document.getElementById('Id_Email');
+        mail.setAttribute('class', "valid")
+    }
+    else {
+        output += 'Адрес электронной почты введен неправильно!\n';
+        let mail = document.getElementById('Id_Email');
+        mail.setAttribute('class', "novalid")
+    }
+
  
+  
+    var re_phone = /^\d[\d\(\)\ -]{4,14}\d$/; // Регулярка телефона
+    var myPhone = document.Sel.Id_Phone.value;
+    var valid_phone = re_phone.test(myPhone);
+    
+    if (valid_phone) {
+        output += 'Номер телефона введен правильно!\n';
+        let phone = document.getElementById('Id_Phone');
+        phone.setAttribute('class', "valid")
+        
+    } 
+    else {
+        output += 'Номер телефона введен неправильно!\n';
+        let phone = document.getElementById('Id_Phone');
+        phone.setAttribute('class', "novalid")
+    }
+
+    alert(output)
+}
+
+
