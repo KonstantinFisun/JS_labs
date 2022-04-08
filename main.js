@@ -1,5 +1,6 @@
-let elem1 = document.getElementById('tab1')
+     let elem1 = document.getElementById('tab1')
      let elem2 = document.getElementById('tab2')
+     let elem3 = document.getElementById('tab3')
      let elem4 = document.getElementById('tab4')
      let elem5 = document.getElementById('tab5')
      let elem7 = document.getElementById('tab7')
@@ -122,22 +123,41 @@ let elem1 = document.getElementById('tab1')
 
         }
     }
-     /*=======================================================================*/
      
-     /*Задание 4 - Изменение блока*/
-     var timer1 = null; // Название таймера функции для раскраски
-    
-     elem4.onclick = function(){
-         let block = document.getElementById('tab4');
-         if (block.className === "displayed tab-content-4"){
-             block.setAttribute('class', "hidden tab-content-4")
-             clearInterval(timer1);
-         }
-         else{
-             block.setAttribute('class', 'displayed tab-content-4')
-             timer1 = setInterval(coloring, 150)
-         }
+/*=======================================================================*/
+     
+/*Задание 3 - Нахождение элементов в Dom*/
+
+     elem3.onclick = function(){
+        let block = document.getElementById('task_3')
+        if (block.className === "displayed tab-content-3"){
+            block.setAttribute('class', "hidden tab-content-3")
+        }
+        else{
+            block.setAttribute('class', "displayed tab-content-3")
+            block.innerHTML = "Количество элементов внутри формы: " + document.forms["Sel"].length;
+        }
+      }  
+     
+
+
+
+ /*=======================================================================*/
+ 
+ /*Задание 4 - Изменение блока*/
+ var timer1 = null; // Название таймера функции для раскраски
+
+ elem4.onclick = function(){
+     let block = document.getElementById('tab4');
+     if (block.className === "displayed tab-content-4"){
+         block.setAttribute('class', "hidden tab-content-4")
+         clearInterval(timer1);
      }
+     else{
+         block.setAttribute('class', 'displayed tab-content-4')
+         timer1 = setInterval(coloring, 150)
+     }
+ }
         
     // Раскраска блока
     function coloring(){
