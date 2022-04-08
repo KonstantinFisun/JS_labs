@@ -282,18 +282,27 @@ elem7.onclick = function(){
 
 /*===========================================================================*/
 
-/*Задание 8 - Обработка событий*/
+/*Задание 8 - Исчезающая картинка*/
  
-elem8.onclick = function(){
-    let block = document.getElementById('task_8')
-    if (block.className === "displayed tab-content-8"){
-        block.setAttribute('class', "hidden tab-content-8")
-    }
-    else{
-        block.setAttribute('class', "displayed tab-content-8")  
-        }
-}
-   
+//pict = document.getElementsByClassName('Picture')
+//
+//
+//
+//elem8.onclick = function(){
+//    let block = document.getElementById('task_8')
+//    if (block.className === "displayed tab-content-8"){
+//        block.setAttribute('class', "hidden tab-content-8")
+//    }
+//    else{
+//        block.setAttribute('class', "displayed tab-content-8")
+//        }
+//}
+//
+//pict.onmouseover = function(){
+//    this.style.display = 'none';
+//}
+//   
+//pict.onm
 /*===========================================================================*/
 
 /*Задание 9 - Анкета*/
