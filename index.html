@@ -108,7 +108,7 @@
                 <FORM NAME="Sel">
                  <div class="FIO" name="FIO">
                      <div class="left"> Фамилия Имя Отчество</div>
-                     <div class="right"><INPUT NAME="Id_FIO" SIZE=35 class = "text_FIO"></INPUT></div>
+                     <div class="right" id = "FIO_right"><INPUT NAME="Id_FIO" SIZE=35 class = "text_FIO"></INPUT></div>
                  </div>
                  <div class="Gender">
                      <div class="left">Пол</div>
@@ -120,7 +120,7 @@
                  
                  <div class="Password">
                      <div class="left">Пароль</div>
-                     <div class="right">
+                     <div class="right" id = "pas">
                             Введите пароль<br>
                             <INPUT TYPE="password" NAME="Pwd"></INPUT>
                             <br>Введите пароль повторно<INPUT TYPE="password" NAME="Pwd1"></INPUT>         
@@ -171,13 +171,14 @@
                      </div>
                  </div>
                  <div class="About">
-                     <div class="left">О себе</div>
-                     <div class="right"><textarea id="textArea" class="About_text"></textarea></div>
+                     <div class="left" >О себе</div>
+                     <div class="right" id = "about_right"><textarea id="textArea" class="About_text"></textarea></div>
                  </div>
+                 <INPUT TYPE="button" VALUE="Готово" onClick="Valid();"></INPUT>
+                 <INPUT TYPE="reset" VALUE="Сброс" ></INPUT>
                  </FORM>
              </div>
-            <INPUT TYPE="button" VALUE="Готово" onClick="Valid();"></INPUT>
-            <INPUT TYPE="reset" VALUE="Сброс"></INPUT>
+            
         </section>
        </div>
     

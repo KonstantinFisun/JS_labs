@@ -322,15 +322,39 @@ elem9.onclick = function(){
 
 function Valid()
 {
-    console.log("Я тут")
     var output = "";
     
     var re_mail = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i; // Регулярка почты
     var myMail = document.Sel.Id_Email.value;
     var valid_mail = re_mail.test(myMail);
     
+    var re_phone = /^\d[\d\(\)\ -]{4,14}\d$/; // Регулярка телефона
+    var myPhone = document.Sel.Id_Phone.value;
+    var valid_phone = re_phone.test(myPhone);
+    
+    // Проверка имени
+    if (document.Sel.Id_FIO.value == '') {
+        output += 'Введите имя!\n';
+        let fio = document.getElementById('FIO_right');
+        fio.setAttribute('class', "right novalid")
+    }
+    else {    
+        let fio = document.getElementById('FIO_right');
+        fio.setAttribute('class', "right valid")
+    }
+    
+    //Проверка пароля
+    if(document.Sel.Pwd.value != document.Sel.Pwd1.value || document.Sel.Pwd.value == ''){
+        let pas = document.getElementById('pas');
+        pas.setAttribute('class', "right novalid")
+    }
+    else{
+        let pas = document.getElementById('pas');
+        pas.setAttribute('class', "right valid")
+    }
+    
+    // Проверка почты
     if (valid_mail) {
-        output += 'Адрес эл. почты введен правильно!\n';
         let mail = document.getElementById('Id_Email');
         mail.setAttribute('class', "valid")
     }
@@ -339,15 +363,9 @@ function Valid()
         let mail = document.getElementById('Id_Email');
         mail.setAttribute('class', "novalid")
     }
-
- 
-  
-    var re_phone = /^\d[\d\(\)\ -]{4,14}\d$/; // Регулярка телефона
-    var myPhone = document.Sel.Id_Phone.value;
-    var valid_phone = re_phone.test(myPhone);
-    
+   
+    // Проверка телефона
     if (valid_phone) {
-        output += 'Номер телефона введен правильно!\n';
         let phone = document.getElementById('Id_Phone');
         phone.setAttribute('class', "valid")
         
@@ -357,8 +375,22 @@ function Valid()
         let phone = document.getElementById('Id_Phone');
         phone.setAttribute('class', "novalid")
     }
+    
+    let about = document.getElementById('textArea');
+    // Проверка о себе
+    if (about.value != '') {
+        let about_right = document.getElementById('about_right');
+        about_right.setAttribute('class', "right valid")
+        
+    } 
+    else {
+        output += 'Номер телефона введен неправильно!\n';
+        let about_right = document.getElementById('about_right');
+        about_right.setAttribute('class', "right novalid")
+    }
+    
 
-    alert(output)
+    
 }
 
 
