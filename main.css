@@ -204,12 +204,46 @@ h1.title{
 
 /*Картина*/
 
+
+
+/*==========================================================================*/
+
+/*Картинка*/
+.tab-content-8{
+    position: relative;
+}
+
 .Picture{
+    position: relative;
     height: 400px;
     width: 398px;
     object-fit: cover;
+    filter: alpha (Opacity=100);
+
+    opacity: 0;
+
+
+    /*transition: all 1s ease-in-out; /* эффект перехода для других браузеров */
 }
 
+.under_pic{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+}
+/*
+.Picture:hover {
+
+    filter: alpha (Opacity=0);
+
+    opacity: 0;
+    
+   
+
+    transition: all 1s ease-in-out;
+
+}
+*/
 /*==========================================================================*/
 
 /*Анкета*/

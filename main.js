@@ -283,7 +283,50 @@ elem7.onclick = function(){
 /*===========================================================================*/
 
 /*Задание 8 - Исчезающая картинка*/
- 
+var op = -1;
+var imag = document.getElementById('Picture')
+var text_under = document.getElementById('under_pic')
+elem8.onclick = function(){
+    var block = document.getElementById('task_8')
+    if (block.className === "displayed tab-content-8"){
+        block.setAttribute('class', "hidden tab-content-8")
+        imag.style.opacity=0;
+        op = -1;
+    }
+    else{
+        block.setAttribute('class', "displayed tab-content-8")
+        setOpacity()
+        
+//        let img = document.getElementById('Picture')
+//        img.style.opacity = parseFloat(img.style.opacity) + 0.5;
+//        timer2 = setInterval(loaded(img), 100)
+        
+        }
+}
+
+imag.onmouseover = function(){
+    if( op > -1 ) {
+        op -= 0.1;
+        imag.style.opacity=op/10;
+        text_under.style.opacity = 1 - op/10;
+        setTimeout(imag.onmouseover, 20);
+    }
+}
+
+imag.onmouseout = function(){
+    text_under.style.opacity = 0;
+    setOpacity()
+}
+
+function setOpacity() {
+    if( op < 10 ) {
+        op += 0.1;
+        imag.style.opacity=op/10;
+        timer2 = setTimeout(setOpacity, 20);
+    }
+}
+
+
 //pict = document.getElementsByClassName('Picture')
 //
 //
