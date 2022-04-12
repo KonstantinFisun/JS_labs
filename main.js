@@ -6,6 +6,7 @@
      let elem7 = document.getElementById('tab7')
      let elem8 = document.getElementById('tab8')
      let elem9 = document.getElementById('tab9')
+     let elem10 = document.getElementById('tab10')
      
      /*Задание 1 - Дата/Время*/
      
@@ -431,9 +432,91 @@ function Valid()
         let about_right = document.getElementById('about_right');
         about_right.setAttribute('class', "right novalid")
     }
-    
+      
+}
 
+/*===========================================================================*/
+
+/*Задание 10 - Игра*/
+
+elem10.onclick = function(){
+    let block = document.getElementById('task_10')
+    if (block.className === "displayed tab-content-10"){
+        block.setAttribute('class', "hidden tab-content-10")
+    }
+    else{
+        block.setAttribute('class', "displayed tab-content-10")  
+        }
+}
+
+var block_game = document.getElementById("block")
+var hole_game = document.getElementById("hole")
+var character_game = document.getElementById("character")
+var jumping = 0; //Прыжки
+var counter = -1; //Очки
+
+
+hole_game.addEventListener('animationiteration', () => {
+    //Выбираем где будет располагаться отверстие
+    var random = Math.random()*3;
+    var top = (random*100)+150;
+    hole_game.style.top = -(top) + "px";
+    counter++;
     
+});
+
+//Падение
+setInterval(function(){
+    //Узнаем координату птицы
+    var characterTop = parseInt(window.getComputedStyle(character_game).getPropertyValue("top"));
+    
+    //Нет прыжка
+    if(jumping == 0){
+        character_game.style.top = (characterTop+3) + "px"; // Образуем падение
+    }
+    
+    
+    var blockLeft = parseInt(window.getComputedStyle(block_game).getPropertyValue("left"));
+    
+    var holeTop = parseInt(window.getComputedStyle(hole_game).getPropertyValue("top"));
+    
+    var cTop = -(500-characterTop);
+    
+    
+    //Окончание игры
+    if((characterTop > 500) || ((blockLeft < 20) && (blockLeft> -50) 
+                                && ((cTop < holeTop) || (cTop > holeTop + 130)))){
+        alert("Игра завершина! Очки: " + counter);
+        character_game.style.top = 100 + "px";
+        counter = 0;
+    }
+    
+    
+    
+}, 10);
+
+//Прыжок птицы
+function jump(){
+    jumping = 1; //Прыжок
+    let jumpCount = 0;
+    var jumpInterval = setInterval(function(){
+        //Узнаем координату птицы
+        var characterTop = parseInt(window.getComputedStyle(character_game).getPropertyValue("top"));
+        character_game.style.top = (characterTop+3) + "px"; // Образуем падение
+        
+        //Совершаем прыжока если птица не вверху
+        if((characterTop > 6) && (jumpCount < 15)){
+            character_game.style.top = (characterTop-5) + "px"; // Образуем прыжок
+        }
+        
+        //Сброс прыжков
+        if(jumpCount>20){
+            clearInterval(jumpInterval)
+            jumping = 0;
+            jumpCount = 0
+        }
+        jumpCount++;
+    }, 10)
 }
 
 
