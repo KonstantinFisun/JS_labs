@@ -5,6 +5,7 @@
 
 .tab-content { display: none; }
 .input_tab { display: none; }
+
 /*
 .accordion{
     position: relative;
@@ -380,7 +381,7 @@ h1.title{
     height: 500px;
     background-color: black;
     position: relative;
-    left: 700px;
+    left: 800px;
     animation: block 2s infinite linear;
 }
 
@@ -395,7 +396,7 @@ h1.title{
     height: 150px;
     background-color: white;
     position: relative;
-    left: 400px;
+    left: 800px;
     top: -500px;
     animation: block 2s infinite linear;
 }

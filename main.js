@@ -150,7 +150,7 @@
 
  elem4.onclick = function(){
      let block = document.getElementById('tab4');
-     if (block.className === "displayed tab-content-4"){
+     if (block.className == "displayed tab-content-4"){
          block.setAttribute('class', "hidden tab-content-4")
          clearInterval(timer1);
      }
@@ -438,14 +438,27 @@ function Valid()
 /*===========================================================================*/
 
 /*Задание 10 - Игра*/
-
+var timer3;
 elem10.onclick = function(){
     let block = document.getElementById('task_10')
     if (block.className === "displayed tab-content-10"){
         block.setAttribute('class', "hidden tab-content-10")
+        clearInterval(timer3)
     }
     else{
-        block.setAttribute('class', "displayed tab-content-10")  
+        block.setAttribute('class', "displayed tab-content-10")
+        Start()
+        }
+}
+
+function Start(){
+    clearInterval(timer3);
+    if(confirm("Нажмите ОК, чтобы начать. Нажмите ОТМЕНА, чтобы выйти")){
+            timer3 = setInterval(start_game, 10)
+        }
+        else{
+            clearInterval(timer3);
+            document.getElementById('task_10').setAttribute('class', "hidden tab-content-10");
         }
 }
 
@@ -466,7 +479,7 @@ hole_game.addEventListener('animationiteration', () => {
 });
 
 //Падение
-setInterval(function(){
+function start_game(){
     //Узнаем координату птицы
     var characterTop = parseInt(window.getComputedStyle(character_game).getPropertyValue("top"));
     
@@ -489,11 +502,12 @@ setInterval(function(){
         alert("Игра завершина! Очки: " + counter);
         character_game.style.top = 100 + "px";
         counter = 0;
+        Start()
     }
     
     
     
-}, 10);
+};
 
 //Прыжок птицы
 function jump(){
@@ -518,5 +532,8 @@ function jump(){
         jumpCount++;
     }, 10)
 }
+
+
+
 
 
