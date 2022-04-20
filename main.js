@@ -3,6 +3,7 @@
      let elem3 = document.getElementById('tab3')
      let elem4 = document.getElementById('tab4')
      let elem5 = document.getElementById('tab5')
+     let elem6 = document.getElementById('tab6')
      let elem7 = document.getElementById('tab7')
      let elem8 = document.getElementById('tab8')
      let elem9 = document.getElementById('tab9')
@@ -183,34 +184,78 @@
     
     /*Задание 5 - Создание элемента*/    
     
-    elem5.onclick = function(){
-        let block = document.getElementById('task_5')
-        if (block.className === "displayed tab-content-5"){
-            block.setAttribute('class', "hidden tab-content-5")
+elem5.onclick = function(){
+    let block = document.getElementById('task_5')
+    if (block.className === "displayed tab-content-5"){
+        block.setAttribute('class', "hidden tab-content-5")
+    }
+    else{
+        block.setAttribute('class', "displayed tab-content-5")
+        let ulcontainer = document.getElementsByClassName('ul_task_5')[0]
+        let ultext = ''
+        var value = prompt("Введите содержимое пункта")
+        while(value != null){
+            ultext += '<li>' + value + '</li>'
+            value = prompt("Введите содержимое пункта")
         }
-        else{
-            block.setAttribute('class', "displayed tab-content-5")
-            let ulcontainer = document.getElementsByClassName('ul_task_5')[0]
-            let ultext = ''
-            var value = prompt("Введите содержимое пункта")
-            while(value != null){
-                ultext += '<li>' + value + '</li>'
-                value = prompt("Введите содержимое пункта")
-            }
-            ulcontainer.innerHTML += ultext
-        }
-    }    
+        ulcontainer.innerHTML += ultext
+    }
+}    
         
     /*==============================================================================*/     
 /*==============================================================================*/
     
 /*Задание 6 - Обработка событий*/
     
+let color = ['red', 'black', 'blue', 'green']
+
+let picture = document.querySelectorAll('.picture');
+
+elem6.onclick = function(){
+  let block = document.getElementById('task_6')
+  if (block.className === "displayed tab-content-6"){
+      block.setAttribute('class', "hidden tab-content-6")
+  }
+  else{
+      block.setAttribute('class', "displayed tab-content-6")
+      
+      for (let i = 0; i < picture.length; i++) {
+          picture[i].onmouseout = changeColor;
+      }
+  }
+}  
+    
+function changeColor(){
+    for (var i = 0; i < picture.length; i++) {
+        //console.log(this.style.backgroundColor)
+        if (this.style.backgroundColor == 'red') {
+            this.style.backgroundColor = 'black';
+            return;
+        }
+        
+        if (this.style.backgroundColor == 'black') {
+            this.style.backgroundColor = 'blue';
+            return;
+        }
+        
+        if (this.style.backgroundColor == 'blue') {
+            this.style.backgroundColor = 'green';
+            return;
+        }
+        
+        if (this.style.backgroundColor == 'green') {
+            this.style.backgroundColor = 'red';
+            return;
+        }
+    }
+}
+
 /*===========================================================================*/
     
     
-/*Задание 7 - Обработка событий*/
- 
+/*Задание 7 - Скрывающиеся меню*/
+    
+
 
 let ending1 = document.getElementById('end_sweeties')
 elem7.onclick = function(){
@@ -226,57 +271,33 @@ elem7.onclick = function(){
         
         titleElem.onclick = function(){
             menuElem.classList.toggle('open');
-        }
-        
-        let list1 = document.getElementById('list1')
-        let list2 = document.getElementById('list2')
-        let list3 = document.getElementById('list3')
-        let list4 = document.getElementById('list4')
-        let f1 = 0
-        let f2 = 0
-        let f3 = 0
-        let f4 = 0
+            let list = document.querySelectorAll('.dish-hide');
         
         
-        
-        
-        list1.onclick = function(){
-            list1.style.display = 'none';
-            f1 = 1
-            if(f1+f2+f3+f4 == 4){
-                ending1.style.display = 'block';
+            for (let i = 0; i < list.length; i++) {
+                list[i].classList.replace('dish-hide', 'dish-active');
+                list[i].onclick = eraseElem;
+            }
+            
+            
+            let num = 0;
+            function eraseElem() {
+                this.style.opacity = 0;
+                num += 1;
+                if (num == list.length) {
+                    let div = document.getElementById('sweeties'),
+                        h2 = document.createElement('h2');
+                    h2.innerHTML = 'Сладости закончились (';
+                    div.append(h2);
+                }
             }
         }
         
-        
-        list2.onclick = function(){
-            list2.style.display = 'none';
-            f2 = 1
-            if(f1+f2+f3+f4 == 4){
-                ending1.style.display = 'block';
-            }
-        }
-        
-        
-        list3.onclick = function(){
-            list3.style.display = 'none';
-            f3 = 1
-            if(f1+f2+f3+f4 == 4){
-                ending1.style.display = 'block';
-            }
-        }
-        
-        
-        list4.onclick = function(){
-            list4.style.display = 'none';
-            f4 = 1
-            if(f1+f2+f3+f4 == 4){
-                ending1.style.display = 'block';
-            }
-        }
         
     }
+        
 }
+    
 
 
 
@@ -453,7 +474,7 @@ elem10.onclick = function(){
 
 function Start(){
     clearInterval(timer3);
-    if(confirm("Нажмите ОК, чтобы начать. Нажмите ОТМЕНА, чтобы выйти")){
+    if(confirm("Нажмите ОК, чтобы начать заново. Нажмите ОТМЕНА, чтобы выйти")){
             timer3 = setInterval(start_game, 10)
         }
         else{
