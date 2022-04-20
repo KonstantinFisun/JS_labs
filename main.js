@@ -254,8 +254,10 @@ function changeColor(){
     
     
 /*Задание 7 - Скрывающиеся меню*/
-    
 
+var num = 0;
+
+var list = document.querySelectorAll('.dish-hide');
 
 let ending1 = document.getElementById('end_sweeties')
 elem7.onclick = function(){
@@ -270,34 +272,35 @@ elem7.onclick = function(){
         
         
         titleElem.onclick = function(){
+            
             menuElem.classList.toggle('open');
-            let list = document.querySelectorAll('.dish-hide');
-        
-        
+            
             for (let i = 0; i < list.length; i++) {
                 list[i].classList.replace('dish-hide', 'dish-active');
-                list[i].onclick = eraseElem;
-            }
-            
-            
-            let num = 0;
-            function eraseElem() {
-                this.style.opacity = 0;
-                num += 1;
-                if (num == list.length) {
-                    let div = document.getElementById('sweeties'),
-                        h2 = document.createElement('h2');
-                    h2.innerHTML = 'Сладости закончились (';
-                    div.append(h2);
-                }
-            }
+                list[i].addEventListener('click', () => eraseElem(list[i], endSweets));
+            }                 
         }
         
         
     }
         
 }
-    
+
+function eraseElem(elem,callback) {
+    elem.style.opacity = 0;
+    num += 1;
+    if (num == list.length) {
+        callback();
+    }
+}
+
+function endSweets(){
+    let div = document.getElementById('sweeties'),
+    h2 = document.createElement('h2');
+    h2.innerHTML = 'Сладости закончились (';
+    div.append(h2);
+}
+
 
 
 
@@ -518,6 +521,7 @@ function start_game(){
     
     
     //Окончание игры
+    //Если упал вниз или столкнулся с блоком
     if((characterTop > 500) || ((blockLeft < 20) && (blockLeft> -50) 
                                 && ((cTop < holeTop) || (cTop > holeTop + 130)))){
         alert("Игра завершина! Очки: " + counter);
