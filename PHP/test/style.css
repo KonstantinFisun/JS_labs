@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+
+
+body {
+    margin: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: #E6E6FA;
+    text-align: center;
+}
+
+
+input,textarea{
+    background-color: #F1F1F1;
+    padding: 1%;
+
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    border-radius: 8%;
+    border-color: #6A5ACD;
+    width: 300px;
+    color: #483D8B;
+}
+
+p{
+    color: #332570;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+label{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: normal;
+    font-size: 30px;
+    color: #332570;
+}
+
+start{
+    height: 200px;
+    width: 200px;
+}
