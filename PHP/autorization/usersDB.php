@@ -4,3 +4,4 @@ return [
     ['login' => 'moderator', 'password' => 'password'],
     ['login' => 'user', 'password' => '123'],
 ];
+?>
